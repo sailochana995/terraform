@@ -1,10 +1,10 @@
-
-
 resource "aws_instance" "this" {
-    ami = var.ami_id
+    ami = "data.aws_ami.joindevops.id"
     vpc_security_group_ids = [aws_security_group.allow_tls.id]
-    instance_type = var.instance_type
-    tags = var.ec2_tags
+    instance_type = "t2.micro"
+    tags = {
+        Name = "terraform"
+    }
 
 }
 
@@ -14,10 +14,10 @@ resource "aws_security_group" "allow_tls" {
   description = "Allow TLS inbound traffic and all outbound traffic"
 
   ingress {
-    from_port        = var.from_port
-    to_port          = var.to_port
+    from_port        = 22
+    to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = var.cidr_blocks
+    cidr_blocks      = ["0.0.0.0/0"]
     
   }
 
@@ -30,5 +30,7 @@ resource "aws_security_group" "allow_tls" {
   } 
 
 
-  tags = var.sg_tags
+  tags = {
+    Name = "allow_tls"
+  }
 }
