@@ -31,3 +31,6 @@ output "ami_id" {
 output "default_vpc_id" {
     value = data.aws_vpc.default.id
 }
+
+
+

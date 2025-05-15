@@ -1,0 +1,9 @@
+{
+    "editor.guides.indentation": false,
+    "editor.guides.highlightActiveIndentation": true,
+    "workbench.tree.renderIndentGuides": "always",
+    "terraform.validation.enableEnhancedValidation": false,
+    "editor.rulers": [
+        
+    ]
+}
