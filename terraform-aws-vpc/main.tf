@@ -5,6 +5,7 @@ resource "aws_vpc" "main" {
 
   tags = merge(
     var.common_tags,
+    var.vpc_tags,
     
     {
         Name = local.resource_name 
@@ -177,4 +178,3 @@ count = length(var.database_subnet_cidrs)
   subnet_id      = aws_subnet.database[count.index].id
   route_table_id = aws_route_table.database.id
 }
-
