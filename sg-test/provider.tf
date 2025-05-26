@@ -4,15 +4,16 @@ terraform {
      aws = {
      source = "hashicorp/aws"
      version = "5.94.1"
- }
-    }
+   }
+     }
 
       backend "s3" { 
             bucket = "remotestate-82s-prod"
             key = "sg-test"
             region = "us-east-1"
             dynamodb_table = "remotestate-82s-Prod"
-         }   
+
+    }   
                         
                     
     }
